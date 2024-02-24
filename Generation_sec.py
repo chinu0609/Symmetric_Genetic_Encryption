@@ -1,6 +1,7 @@
 import random
 from collections import deque
 from getting_data import *
+
 class Encryption(Data_Prep):
      
 
@@ -11,7 +12,7 @@ class Encryption(Data_Prep):
         self.mutations = None
         self.permutation_factor = None
         self.private_random_num = None
-    
+        self.params = None 
 
     def generate_params(self):
         cross_temp = []
@@ -59,15 +60,21 @@ class Encryption(Data_Prep):
         self.generate_params()
         f_op = open("public_key.txt",'w')
         f_op.write(str(self.cross_over_points))
+        f_op.write("\n")
         f_op.write(str(self.mutations))
+        f_op.write("\n") 
         f_op.write(str(self.permutation_factor))
+        f_op.write("\n") 
         f_op.write(str(self.private_random_num))
         f_op.close()
     
 
     def private_key_gen(self):
-        params = self.cross_over_points + self.mutations + [self.permutation_factor] + [self.private_random_num]
-        params = sum(params,[])
+        self.params = self.cross_over_points + self.mutations + self.permutation_factor + self.private_random_num 
+
+    #     pass 
+    #    params = self.cross_over_points + self.mutations + [self.permutation_factor] + [self.private_random_num]
+    #    params = sum(params,[])
 
    
         
@@ -102,6 +109,7 @@ class Encryption(Data_Prep):
             f.close()
     
 
+    
 
 
 
@@ -110,10 +118,11 @@ class Encryption(Data_Prep):
          
         
 if __name__ == "__main__":
-        obj = Encryption(file ="./sample_text.txt")
+        obj = Encryption(file ="./getting_data.py")
         #obj.generate_params()
         obj.public_key_gen()
         obj.encryption()
+        #obj.encryption()
         #obj.cross_over()
         
 

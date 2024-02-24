@@ -17,9 +17,11 @@ class Data_Prep:
            __.append(i)
            flag +=1
         if len(l_16)%2 !=0:
-            l_16.append([random.randint(0,127)]*16)
+            l_16.append([0]*16)
+#l_16.append([random.randint(0,127)]*16)
         if len(l_16[-1]) != 16:
-            l_16 = l_16 + [random.randint(0,127)]*(len(16 - l_16[0]))
+            l_16 = l_16 + [0]*(len(16 - l_16[0]))
+#[random.randint(0,127)]*(len(16 - l_16[0]))
 
 
 
