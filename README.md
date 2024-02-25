@@ -1,4 +1,4 @@
-## Symmetric key encryption usin genetic algorithm
+## Symmetric key encryption using genetic algorithm
 
 
 This is a implementation of a research paper on assymmetric key encryption using genetic algorithm.
